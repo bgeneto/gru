@@ -1,0 +1,60 @@
+GRU - Gás de Rede Unidimensional
+
+ * TAREFAS PENDENTES
+ * - Mudar a função energia_particula() para que ela receba um número de partícula e não uma posição na rede. // Estou com dificuldade nesta função boba.
+ * ----- Alternativamente poderiamos simplesmente reescrever a função energia_local, desativando a função energia_particula...
+ * - Generalizar o critério de Metrópolis (Para a colaboração com o Miguel Rubi!).
+ * - Rodar um número arbitrário de simulações com condições iniciais diferentes e extrair a média. -> isso é legal para paralelizar em CUDA! (Bernhard)
+ *
+ * IDEIAS PARA FUTURAS IMPLEMENTAÇÕES
+ * - Generalizar o tipo de interação: Passar as interações usando uma lista com vírgulas, para permitir uma generalização para mais de um tipo de interação
+ * - Ler a lista de argumentos de forma mais inteligente e/ou padronizada (getopt_long). Checar com o Bernhard se vale a pena... será que ele roda no Windows?
+ * - leitura da configuração inicial a partir de um arquivo
+ * - Generalizar o tipo de salto
+ * - criar uma tabela com exponenciais de interaçoes
+ * - criar uma função que aloque memória atribuindo aleatóriamente valores especificados em uma lista (generalizar gera_configuracao_aleatoria)
+ * - Usar um gerador de números aleatórios profissional (Gnu Scientific Library). -> Não é necessário? De acordo com o Bernhard, não... 
+ *
+ * 
+ * HISTÓRICO
+ * O código vem sendo desenvolvido desde o final do meu doutorado, em 2008, e foi utilizado para rodar simulações
+ * e calcular a constante de auto-difusão de modelos com propriedades de água em uma dimensão. Os artigos foram publicados em 2011 e 2015 na revista
+ * Journal of Chemical Physics.
+ * 
+ * O Bernhard topou paralelizar o código em CUDA. Torcendo para dar certo!!!
+ 
+
+ DÚVIDAS
+ 
+ 1) Qual é o jeito correto de encerrar um programa?
+ 
+ 
+ IMPLEMENTAÇÕES
+ **************
+ * 2015-10-29 *
+ **************
+ 
+ i) foi criada a função versao_gru(FILE *arq)
+ ii) As mensagens padrões do programa estão saindo em stdout e stderr via fprintf.
+  
+ O Bernhard solicitou duas correções urgentes (2015-09-23):
+ 
+ I) Retirar um laço no código;
+ II) Armazenar os dados em um vetor;
+  
+ -> falta finalizar a modularização no código main();
+ 
+ 
+ **************
+ * 2015-10-17 *
+ **************
+ 
+ i) Relatorios de simulação. OK.
+   *  o arquivo arq_simulacao está dentro da estrutura t_simulacao 
+ 
+ ii) Modularizando o código
+  * a estrutura t_simulacao agora contém a estrutura t_sistema (cada simulacao simula um sistema). 
+    Futuramente a mesma estrutura poderá conter mais de uma simulação, em threads ou algum tipo de paralelismo... a pensar...
+  * 
+  
+ iii) o parâmetro de entrada do tamanho do sistema mudou de l para L. 

@@ -1,0 +1,31 @@
+GRU - Gás de Rede Unidimensional
+
+ * TAREFAS PENDENTES
+ * - Mudar a função energia_particula() para que ela receba um número de partícula e não uma posição na rede.
+ * - Modularizar o programa
+ * - Generalizar o critério de Metrópolis (Para a colaboração com o Miguel Rubi!).
+ * - Rodar um número arbitrário de simulações com condições iniciais diferentes e extrair a média.
+ *
+ * IDEIAS PARA FUTURAS IMPLEMENTAÇÕES
+ * - Ler a lista de argumentos de forma mais inteligente e/ou padronizada (getopt_long)
+ * - Gravar os arquivos utilizando uma nomenclatura padronizada com os dados da simulação!
+ * - leitura da configuração inicial a partir de um arquivo
+ * - transferir os tipos de arquivos arq_simulacao e arq_relatorio para dentro da estrutura simulacao (criar funções para manipular as saídas)
+ * - número de n-ésimos vizinhos
+ * - Generalizar o tipo de salto
+ * - Generalizar o tipo de interação
+ * - criar uma tabela de interaçoes
+ *
+ * HISTÓRICO
+ * O código vem sendo desenvolvido desde o final do meu doutorado, em 2008, e foi utilizado para rodar simulações
+ * e calcular a constante de auto-difusão de modelos com propriedades de água em uma dimensão. Os artigos foram publicados em 2011 e 2015 na revista
+ * Journal of Chemical Physics.
+
+
+ IMPLEMENTAÇÕES
+ 
+ 2015-10-17
+ 
+ - Relatorios de simulação. OK.
+ 
+ 
